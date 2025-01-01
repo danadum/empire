@@ -1,11 +1,11 @@
 {
     "name": "Goodgame Empire",
     "short_name": "Goodgame Empire",
-    "start_url": "./",
+    "start_url": "/empire/",
     "display": "standalone",
     "background_color": "#000000",
     "lang": "en",
-    "scope": "./",
+    "scope": "/empire/",
     "description": "Goodgame Empire is a medieval strategy browser game. Build you own castle, create a powerful army and fight epic PvP battles. Start playing now!",
     "theme_color": "#000000",
     "icons": [
