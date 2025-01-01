@@ -3,7 +3,6 @@
     <head>
         <meta name="author" content="Danadum">
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <meta name="robots" content="INDEX, FOLLOW">
         <meta name="description"
             content="Goodgame Empire is a medieval strategy browser game. Build you own castle, create a powerful army and fight epic PvP battles. Start playing now!">
         <meta property="og:title" content="Goodgame Empire">
@@ -11,41 +10,35 @@
         <meta property="og:description"
             content="Goodgame Empire is a medieval strategy browser game. Build you own castle, create a powerful army and fight epic PvP battles. Start playing now!">
         <meta property="og:image" content="https://media.goodgamestudios.com/sns/_img/game12/fb_logo.jpg">
-        <meta name="yandex-verification" content="4672de0cfc2c2de1">
         <meta name="viewport"
             content="width=device-width,initial-scale=1,shrink-to-fit=no,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
         <link rel="canonical" href="https://danadum.github.io/empire">
         <link rel="shortcut icon" href="//media.goodgamestudios.com/www/favicon_12.ico" type="image/x-icon">
         <title>Goodgame Empire</title>
+        <link rel="manifest" href="/manifest.webmanifest">
     </head>
     <body>
         <script>
             window.addEventListener('load', async () => {
                 let response;
-                try {
-                    response = await fetch("https://sheltered-everglades-24913.fly.dev/https://empire.goodgamestudios.com")
-                    response = await response.text()
-                    response = new DOMParser().parseFromString(response, 'text/html');
-                    response.head.insertAdjacentHTML("beforeend", `
-                        <style>
-                            #game {
-                                width: 100dvw !important;
-                                height: 100dvh !important;
-                                margin-top: 0 !important;
-                            }
-                            #onetrust-consent-sdk, #ad-placeholder-vertical, #ad-placeholder-horizontal, .fc-ab-root, .fc-whitelist-root, .nts-container, .kskdDiv, .videoAdUi, .interstitialAdContainer, #didomi-host, ins[id^=gpt_unit_] {
-                                display: none !important;
-				clip-path: inset(100%) !important;
-    				visibility: hidden !important;
-                            }
-                        </style>
-                    `);
-                }
-                catch {
-                    response = await fetch("./index_static.html")
-                    response = await response.text()
-                    response = new DOMParser().parseFromString(response, 'text/html');
-                }
+                response = await fetch("https://sheltered-everglades-24913.fly.dev/https://empire.goodgamestudios.com")
+                response = await response.text()
+                response = new DOMParser().parseFromString(response, 'text/html');
+                response.head.insertAdjacentHTML("beforeend", `
+                    <style>
+                        #game {
+                            width: 100dvw !important;
+                            height: 100dvh !important;
+                            margin-top: 0 !important;
+                        }
+                        #onetrust-consent-sdk, #ad-placeholder-vertical, #ad-placeholder-horizontal, .fc-ab-root, .fc-whitelist-root, .nts-container, .kskdDiv, .videoAdUi, .interstitialAdContainer, #didomi-host, ins[id^=gpt_unit_] {
+                            display: none !important;
+                            clip-path: inset(100%) !important;
+                            visibility: hidden !important;
+                        }
+                    </style>
+                    <link rel="manifest" href="/manifest.webmanifest">
+                `);
                 document.documentElement.innerHTML = response.documentElement.innerHTML;
                 for (let script of Array.from(document.scripts)) {
 	            	script.replaceWith(document.createRange().createContextualFragment(script.outerHTML));
