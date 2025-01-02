@@ -26,29 +26,31 @@
                 else if (!window.location.search.includes('nomobileredirect')) {
                     window.location.href = `${window.location.href.replace(/\/$/, '')}/?nomobileredirect=true`;
                 }
-                let response;
-                response = await fetch("https://sheltered-everglades-24913.fly.dev/https://empire.goodgamestudios.com")
-                response = await response.text()
-                response = new DOMParser().parseFromString(response, 'text/html');
-                response.head.insertAdjacentHTML("beforeend", `
-                    <style>
-                        #game {
-                            width: 100dvw !important;
-                            height: 100dvh !important;
-                            margin-top: 0 !important;
-                        }
-                        #onetrust-consent-sdk, #ad-placeholder-vertical, #ad-placeholder-horizontal, .fc-ab-root, .fc-whitelist-root, .nts-container, .kskdDiv, .videoAdUi, .interstitialAdContainer, #didomi-host, ins[id^=gpt_unit_] {
-                            display: none !important;
-                            clip-path: inset(100%) !important;
-                            visibility: hidden !important;
-                        }
-                    </style>
-                    <link rel="manifest" href="/empire/manifest.webmanifest">
-                `);
-                document.documentElement.innerHTML = response.documentElement.innerHTML;
-                for (let script of Array.from(document.scripts)) {
-	            	script.replaceWith(document.createRange().createContextualFragment(script.outerHTML));
-	            }
+                else {
+                    let response;
+                    response = await fetch("https://sheltered-everglades-24913.fly.dev/https://empire.goodgamestudios.com")
+                    response = await response.text()
+                    response = new DOMParser().parseFromString(response, 'text/html');
+                    response.head.insertAdjacentHTML("beforeend", `
+                        <style>
+                            #game {
+                                width: 100dvw !important;
+                                height: 100dvh !important;
+                                margin-top: 0 !important;
+                            }
+                            #onetrust-consent-sdk, #ad-placeholder-vertical, #ad-placeholder-horizontal, .fc-ab-root, .fc-whitelist-root, .nts-container, .kskdDiv, .videoAdUi, .interstitialAdContainer, #didomi-host, ins[id^=gpt_unit_] {
+                                display: none !important;
+                                clip-path: inset(100%) !important;
+                                visibility: hidden !important;
+                            }
+                        </style>
+                        <link rel="manifest" href="/empire/manifest.webmanifest">
+                    `);
+                    document.documentElement.innerHTML = response.documentElement.innerHTML;
+                    for (let script of Array.from(document.scripts)) {
+                        script.replaceWith(document.createRange().createContextualFragment(script.outerHTML));
+                    }
+                }
             });
         </script>
     </body>
