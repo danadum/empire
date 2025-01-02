@@ -20,7 +20,7 @@
     <body>
         <script>
             window.addEventListener('load', async () => {
-                if (!window.location.search.includes('noMobileRedirect')) {
+                if (!window.location.search.includes('noMobileRedirect') && !window.location.search.includes('nomobileredirect')) {
                     window.location.href = `${window.location.href.replace(/\/$/, '')}/?noMobileRedirect=true`;
                 }
                 let response;
