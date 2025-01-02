@@ -20,6 +20,9 @@
     <body>
         <script>
             window.addEventListener('load', async () => {
+                if (!window.location.search.includes('noMobileRedirect')) {
+                    window.location.href = `${window.location.href.replace(/\/$/, '')}/?noMobileRedirect=true`;
+                }
                 let response;
                 response = await fetch("https://sheltered-everglades-24913.fly.dev/https://empire.goodgamestudios.com")
                 response = await response.text()
