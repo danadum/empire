@@ -28,7 +28,7 @@
                 }
                 else {
                     let response;
-                    response = await fetch("https://sheltered-everglades-24913.fly.dev/https://empire.goodgamestudios.com")
+                    response = await fetch("https://cors-buster.fly.dev/https://empire.goodgamestudios.com")
                     response = await response.text()
                     response = new DOMParser().parseFromString(response, 'text/html');
                     response.head.insertAdjacentHTML("beforeend", `
